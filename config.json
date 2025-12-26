@@ -1,0 +1,22 @@
+{
+  "semanaActual": 52,
+  "añoActual": 2025,
+  "semanasDisponibles": [
+    {
+      "semana": 52,
+      "año": 2025,
+      "nombre": "semana_52_2025.json",
+      "rango_fechas": "29 Diciembre 2025 - 03 Enero 2026"
+    },
+    {
+      "semana": 1,
+      "año": 2026,
+      "nombre": "semana_1_2026.json",
+      "rango_fechas": "05 Enero 2026 - 10 Enero 2026"
+    }
+  ],
+  "modoOscuro": true,
+  "notificaciones": true,
+  "ultima_actualizacion": "2024-01-09T10:00:00",
+  "version": "2.0.0"
+}
