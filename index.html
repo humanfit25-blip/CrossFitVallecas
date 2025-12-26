@@ -3,201 +3,770 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrossFit Vallecas - Planificación Semanal | Coaches</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/weightlift.png">
+    <title>CrossFit Vallecas - Planificación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #00adb5;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #00adb5;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            color: #eeeeee;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 173, 181, 0.3);
+        }
+        
+        .week-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #00adb5;
+            font-size: 1.1rem;
+        }
+        
+        select {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: 2px solid #00adb5;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 1rem;
+            min-width: 250px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        select:hover {
+            background: rgba(0, 173, 181, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .week-info {
+            background: rgba(0, 173, 181, 0.2);
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 1px solid #00adb5;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 2px dashed #00adb5;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 173, 181, 0.3);
+            border-top: 5px solid #00adb5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #e74c3c;
+        }
+        
+        .error h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #00adb5;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0097a7;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 173, 181, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid #00adb5;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 173, 181, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .week-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(0, 173, 181, 0.3);
+        }
+        
+        .week-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 173, 181, 0.3);
+        }
+        
+        .week-title {
+            font-size: 2rem;
+            color: #00adb5;
+            margin-bottom: 15px;
+        }
+        
+        .week-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(0, 173, 181, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meta-item i {
+            color: #00adb5;
+        }
+        
+        .workouts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .day-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 173, 181, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 173, 181, 0.2);
+            border-color: #00adb5;
+        }
+        
+        .day-header {
+            background: rgba(0, 173, 181, 0.2);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 173, 181, 0.3);
+        }
+        
+        .day-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00adb5;
+        }
+        
+        .day-date {
+            color: #eeeeee;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .day-content {
+            padding: 25px;
+        }
+        
+        .workout-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .workout-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .workout-title {
+            color: #00adb5;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .workout-details {
+            line-height: 1.6;
+            color: #cccccc;
+            white-space: pre-line;
+        }
+        
+        .workout-details ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .workout-details li {
+            margin-bottom: 8px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: rgba(0, 173, 181, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 173, 181, 0.5);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .debug-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid #00adb5;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            select {
+                width: 100%;
+            }
+            
+            .week-meta {
+                flex-direction: column;
+            }
+            
+            .workouts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <!-- Botón Semana Anterior -->
-            <button class="nav-btn prev-btn" onclick="cambiarSemana('anterior')" title="Semana anterior">
-                <i class="fas fa-chevron-left"></i>
-                <span>Semana Anterior</span>
-            </button>
-
-            <!-- Logo y Título Central -->
-            <div class="header-center">
-                <div class="logo-3d">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 10 L60 40 L90 40 L67 57 L77 87 L50 70 L23 87 L33 57 L10 40 L40 40 Z" fill="#ff0055" stroke="#8B1538" stroke-width="2"></path>
-                        <ellipse cx="50" cy="50" rx="18" ry="20" fill="#1a1a1a" stroke="#ffffff" stroke-width="1.5"></ellipse>
-                        <circle cx="43" cy="48" r="3" fill="#ffffff"></circle>
-                        <circle cx="57" cy="48" r="3" fill="#ffffff"></circle>
-                        <path d="M45 60 Q50 63 55 60" stroke="#ffffff" stroke-width="1.5" fill="none"></path>
-                        <path d="M50 28 L48 35 L50 30 L52 35 Z" fill="#ffffff" stroke="#8B1538" stroke-width="0.5"></path>
-                        <path d="M50 72 L48 65 L50 70 L52 65 Z" fill="#ffffff" stroke="#8B1538" stroke-width="0.5"></path>
-                    </svg>
-                </div>
-                <h1>CrossFit Vallecas</h1>
-                <p class="subtitle">Planificación Semanal | Coaches</p>
-                <p id="week-dates" class="week-dates">Cargando programación...</p>
-                
-                <!-- Indicador de Semana -->
-                <div class="week-indicator">
-                    <i class="fas fa-calendar-week"></i>
-                    <span id="current-week">Semana: Cargando...</span>
-                    <div class="week-navigation-info">
-                        <span id="current-week-number">0</span> de <span id="total-weeks">0</span> semanas
-                    </div>
-                </div>
-            </div>
-
-            <!-- Botón Semana Siguiente -->
-            <button class="nav-btn next-btn" onclick="cambiarSemana('siguiente')" title="Semana siguiente">
-                <span>Semana Siguiente</span>
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <h1><i class="fas fa-dumbbell"></i> CrossFit Vallecas</h1>
+            <p class="subtitle">Sistema de Planificación para Coaches</p>
         </header>
-
-        <!-- Leyenda de Colores -->
-        <div class="legend-container">
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-bar haltero"></div>
-                    <span>HALTEROFILIA</span>
+        
+        <div class="controls">
+            <div class="week-selector">
+                <label for="week-select"><i class="fas fa-calendar-alt"></i> Seleccionar Semana:</label>
+                <select id="week-select">
+                    <option value="">Cargando semanas...</option>
+                </select>
+            </div>
+            <div class="week-info" id="week-info">
+                <i class="fas fa-info-circle"></i> Semana no seleccionada
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Estado de carga -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Cargando configuración...</p>
+            </div>
+            
+            <!-- Error -->
+            <div class="error" id="error" style="display: none;">
+                <h3><i class="fas fa-exclamation-triangle"></i> Error</h3>
+                <p id="error-message">No se pudo cargar la semana</p>
+                <div class="error-actions">
+                    <button class="btn-primary" id="retry-btn">
+                        <i class="fas fa-redo"></i> Reintentar
+                    </button>
+                    <button class="btn-secondary" id="debug-btn">
+                        <i class="fas fa-bug"></i> Ver detalles
+                    </button>
                 </div>
-                <div class="legend-item">
-                    <div class="legend-bar crossfit"></div>
-                    <span>CROSSFIT</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-bar endurance"></div>
-                    <span>ENDURANCE</span>
+                <div class="debug-info" id="debug-info" style="display: none; margin-top: 20px;">
+                    <!-- Información de debug -->
                 </div>
             </div>
             
-            <!-- Selector Rápido de Semanas -->
-            <div class="quick-nav">
-                <button class="quick-nav-btn" onclick="irASemanaEspecifica('semana_52_2025')">
-                    <i class="fas fa-calendar-star"></i> Semana 52
-                </button>
-                <button class="quick-nav-btn" onclick="irASemanaEspecifica('semana_1_2026')">
-                    <i class="fas fa-calendar-day"></i> Semana 1
-                </button>
-                <button class="quick-nav-btn" onclick="mostrarTodasSemanas()">
-                    <i class="fas fa-list"></i> Todas
-                </button>
+            <!-- Contenido de la semana -->
+            <div class="week-content" id="week-content" style="display: none;">
+                <div class="week-header">
+                    <h2 class="week-title" id="week-title">Semana XX de XXXX</h2>
+                    <div class="week-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-week"></i>
+                            <span id="week-dates">Fechas no disponibles</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span id="week-focus">Enfoque principal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="workouts-grid" id="workouts-container">
+                    <!-- Los entrenamientos se cargarán aquí -->
+                </div>
             </div>
         </div>
-
-        <!-- Contenido Principal -->
-        <main>
-            <div id="week-container" class="week-grid">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p><i class="fas fa-dumbbell"></i> Cargando programación...</p>
-                </div>
-            </div>
-        </main>
         
-        <!-- Footer -->
         <footer>
-            <div class="footer-content">
-                <p>CrossFit Vallecas - Sistema de Planificación para Coaches</p>
-                <p class="footer-info">
-                    <i class="fas fa-sync-alt"></i> Actualizado: <span id="last-update">Cargando...</span> | 
-                    <i class="fas fa-database"></i> Modo: <span id="storage-mode">JSON Dinámico</span>
-                </p>
-                <div class="footer-buttons">
-                    <button class="refresh-btn" onclick="cargarSemanaActual()">
-                        <i class="fas fa-sync-alt"></i> Actualizar
-                    </button>
-                    <button class="help-btn" onclick="mostrarAyuda()">
-                        <i class="fas fa-question-circle"></i> Ayuda
-                    </button>
-                    <button class="config-btn" onclick="mostrarConfiguracion()">
-                        <i class="fas fa-cog"></i> Configuración
-                    </button>
-                </div>
-            </div>
+            <p>CrossFit Vallecas - Sistema de Planificación | <span id="update-time">Cargando...</span></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                <i class="fas fa-code"></i> Modo: JSON Dinámico | 
+                <i class="fas fa-folder"></i> Archivos en: /semanas/
+            </p>
         </footer>
     </div>
 
-    <!-- Modal de Ayuda -->
-    <div id="help-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="cerrarModal()">&times;</span>
-            <h3><i class="fas fa-info-circle"></i> Sistema de Navegación</h3>
-            <div class="modal-body">
-                <p><strong>📅 Navegación entre semanas:</strong></p>
-                <ul>
-                    <li><strong>Botones laterales:</strong> "Semana Anterior" y "Semana Siguiente"</li>
-                    <li><strong>Selector rápido:</strong> Botones para saltar a semanas específicas</li>
-                    <li><strong>Feedback:</strong> Cada programa tiene botón para ver recomendaciones</li>
-                </ul>
-                <p><strong>🔄 Para añadir nuevas semanas:</strong></p>
-                <ol>
-                    <li>Crea archivo JSON en carpeta <code>/semanas/</code></li>
-                    <li>Formato: <code>semana_X_YYYY.json</code></li>
-                    <li>Actualiza <code>config.json</code> con nueva semana</li>
-                    <li>¡La página detectará automáticamente!</li>
-                </ol>
-                <p><strong>🎯 Atajos de teclado:</strong></p>
-                <ul>
-                    <li><kbd>←</kbd> Flecha izquierda: Semana anterior</li>
-                    <li><kbd>→</kbd> Flecha derecha: Semana siguiente</li>
-                    <li><kbd>F5</kbd> Actualizar página</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Configuración -->
-    <div id="config-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="cerrarModal()">&times;</span>
-            <h3><i class="fas fa-cog"></i> Configuración del Sistema</h3>
-            <div class="modal-body">
-                <div class="config-section">
-                    <h4><i class="fas fa-calendar-alt"></i> Semana Actual</h4>
-                    <div class="config-input">
-                        <label>Número de Semana:</label>
-                        <input type="number" id="config-week" min="1" max="53" value="1">
-                    </div>
-                    <div class="config-input">
-                        <label>Año:</label>
-                        <input type="number" id="config-year" min="2025" max="2030" value="2026">
-                    </div>
-                    <button class="config-save-btn" onclick="guardarConfiguracion()">
-                        <i class="fas fa-save"></i> Guardar y Cargar
-                    </button>
-                </div>
+    <script>
+        // ========== CONFIGURACIÓN ==========
+        const CONFIG_FILE = './config.json';
+        const WEEKS_FOLDER = './semanas/';
+        
+        // ========== ESTADO ==========
+        let appState = {
+            semanas: [],
+            semanaActual: null,
+            debugMode: false
+        };
+        
+        // ========== ELEMENTOS DOM ==========
+        const weekSelect = document.getElementById('week-select');
+        const weekInfo = document.getElementById('week-info');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const errorMessage = document.getElementById('error-message');
+        const retryBtn = document.getElementById('retry-btn');
+        const debugBtn = document.getElementById('debug-btn');
+        const debugInfo = document.getElementById('debug-info');
+        const weekContent = document.getElementById('week-content');
+        const weekTitle = document.getElementById('week-title');
+        const weekDates = document.getElementById('week-dates');
+        const weekFocus = document.getElementById('week-focus');
+        const workoutsContainer = document.getElementById('workouts-container');
+        const updateTime = document.getElementById('update-time');
+        
+        // ========== INICIALIZACIÓN ==========
+        document.addEventListener('DOMContentLoaded', initApp);
+        
+        async function initApp() {
+            console.log('🚀 Iniciando aplicación...');
+            updateTime.textContent = new Date().toLocaleString('es-ES');
+            
+            // Configurar eventos
+            retryBtn.addEventListener('click', loadConfig);
+            debugBtn.addEventListener('click', toggleDebug);
+            weekSelect.addEventListener('change', handleWeekChange);
+            
+            // Cargar configuración
+            await loadConfig();
+        }
+        
+        // ========== FUNCIONES PRINCIPALES ==========
+        async function loadConfig() {
+            try {
+                showLoading();
+                hideError();
                 
-                <div class="config-section">
-                    <h4><i class="fas fa-bell"></i> Notificaciones</h4>
-                    <div class="config-switch">
-                        <label>
-                            <input type="checkbox" id="notifications-enabled" checked>
-                            <span class="slider"></span>
-                            Recordatorios de actualización
-                        </label>
-                    </div>
-                    <div class="config-switch">
-                        <label>
-                            <input type="checkbox" id="auto-refresh-enabled">
-                            <span class="slider"></span>
-                            Actualización automática
-                        </label>
-                    </div>
-                </div>
+                console.log('📁 Cargando config.json...');
+                const response = await fetch(CONFIG_FILE);
                 
-                <div class="config-section">
-                    <h4><i class="fas fa-database"></i> Sistema de Archivos</h4>
-                    <p>Semanas disponibles: <span id="available-weeks-count">2</span></p>
-                    <button class="config-btn-small" onclick="recargarListaSemanas()">
-                        <i class="fas fa-redo"></i> Recargar lista
-                    </button>
-                    <button class="config-btn-small" onclick="abrirExploradorSemanas()">
-                        <i class="fas fa-folder-open"></i> Explorar semanas
-                    </button>
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} - No se pudo cargar config.json`);
+                }
+                
+                const config = await response.json();
+                console.log('✅ Config cargada:', config);
+                
+                // Verificar estructura
+                if (!config.semanas || !Array.isArray(config.semanas)) {
+                    throw new Error('config.json debe tener un array "semanas" con nombres de archivos');
+                }
+                
+                appState.semanas = config.semanas;
+                
+                // Actualizar selector
+                updateWeekSelector();
+                
+                // Cargar primera semana si hay
+                if (appState.semanas.length > 0) {
+                    await loadWeek(appState.semanas[0]);
+                } else {
+                    showError('No hay semanas configuradas en config.json');
+                }
+                
+            } catch (err) {
+                console.error('❌ Error cargando config:', err);
+                showError(`Error cargando configuración: ${err.message}`);
+                showDebugInfo(err);
+            }
+        }
+        
+        async function loadWeek(weekFile) {
+            try {
+                showLoading();
+                
+                console.log(`📁 Cargando semana: ${weekFile}`);
+                const response = await fetch(WEEKS_FOLDER + weekFile);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} - No se encontró ${weekFile}`);
+                }
+                
+                const weekData = await response.json();
+                console.log('✅ Semana cargada:', weekData);
+                
+                // Validar estructura básica
+                if (!weekData.semana && !weekData.anio) {
+                    console.warn('⚠️ JSON no tiene estructura esperada, pero se intentará renderizar');
+                }
+                
+                appState.semanaActual = weekData;
+                renderWeek(weekData);
+                
+                // Actualizar UI
+                weekSelect.value = weekFile;
+                weekInfo.innerHTML = `<i class="fas fa-check-circle"></i> ${weekFile.replace('.json', '')}`;
+                updateTime.textContent = new Date().toLocaleString('es-ES');
+                
+                hideLoading();
+                showContent();
+                
+            } catch (err) {
+                console.error('❌ Error cargando semana:', err);
+                showError(`No se pudo cargar ${weekFile}: ${err.message}`);
+                showDebugInfo(err);
+            }
+        }
+        
+        function renderWeek(weekData) {
+            // Información general
+            weekTitle.textContent = `Semana ${weekData.semana || 'X'} de ${weekData.anio || 'XXXX'}`;
+            weekDates.textContent = weekData.rango_fechas || weekData.fecha_inicio || 'Fechas no especificadas';
+            weekFocus.textContent = weekData.comentario_general || weekData.enfoque || 'Entrenamiento general';
+            
+            // Limpiar contenedor
+            workoutsContainer.innerHTML = '';
+            
+            // DETECTAR ESTRUCTURA DEL JSON
+            let dias = [];
+            
+            // Estructura 1: weekData.dias (formato complejo)
+            if (weekData.dias && Array.isArray(weekData.dias)) {
+                console.log('📊 Estructura detectada: "dias" con programas');
+                dias = weekData.dias.map(dia => ({
+                    nombre: dia.nombre,
+                    fecha: dia.fecha,
+                    contenido: dia.programas ? renderProgramas(dia.programas) : 'Sin programas'
+                }));
+            }
+            // Estructura 2: weekData.entrenamientos (formato simple)
+            else if (weekData.entrenamientos && Array.isArray(weekData.entrenamientos)) {
+                console.log('📊 Estructura detectada: "entrenamientos" simple');
+                dias = weekData.entrenamientos.map(ent => ({
+                    nombre: ent.dia,
+                    fecha: ent.fecha,
+                    contenido: renderEntrenamientoSimple(ent)
+                }));
+            }
+            // Estructura 3: weekData es un objeto simple (como {"test": "ok"})
+            else {
+                console.log('📊 Estructura detectada: Objeto simple');
+                dias = [{
+                    nombre: 'Test',
+                    fecha: 'Hoy',
+                    contenido: `<div class="workout-item">
+                        <h3 class="workout-title"><i class="fas fa-vial"></i> Archivo de prueba</h3>
+                        <div class="workout-details">
+                            <p>Este es un archivo JSON de prueba. Estructura recibida:</p>
+                            <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 10px; overflow-x: auto;">${JSON.stringify(weekData, null, 2)}</pre>
+                            <p class="tags">
+                                <span class="tag">Test</span>
+                                <span class="tag">Debug</span>
+                            </p>
+                        </div>
+                    </div>`
+                }];
+            }
+            
+            // Renderizar días
+            if (dias.length === 0) {
+                workoutsContainer.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #888;">
+                        <i class="fas fa-calendar-times" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                        <h3>No hay entrenamientos para esta semana</h3>
+                        <p>El archivo JSON no contiene datos de entrenamientos.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            dias.forEach(dia => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+                
+                dayCard.innerHTML = `
+                    <div class="day-header">
+                        <div class="day-name">${dia.nombre}</div>
+                        <div class="day-date">${dia.fecha || ''}</div>
+                    </div>
+                    <div class="day-content">
+                        ${dia.contenido}
+                    </div>
+                `;
+                
+                workoutsContainer.appendChild(dayCard);
+            });
+        }
+        
+        function renderProgramas(programas) {
+            return programas.map(prog => `
+                <div class="workout-item">
+                    <h3 class="workout-title">
+                        <i class="fas fa-${getIcon(prog.tipo)}"></i> ${prog.titulo}
+                    </h3>
+                    ${prog.workouts ? prog.workouts.map(w => `
+                        <div style="margin-bottom: 15px;">
+                            <strong>${w.titulo}:</strong>
+                            <div class="workout-details">${w.detalles.replace(/\n/g, '<br>')}</div>
+                        </div>
+                    `).join('') : ''}
+                    ${prog.feedback ? `
+                        <div style="margin-top: 15px; padding: 15px; background: rgba(0,173,181,0.1); border-radius: 8px; border-left: 4px solid #00adb5;">
+                            <strong><i class="fas fa-comment-medical"></i> Feedback:</strong>
+                            <p style="margin-top: 8px;">${prog.feedback}</p>
+                        </div>
+                    ` : ''}
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+            `).join('');
+        }
+        
+        function renderEntrenamientoSimple(ent) {
+            return `
+                <div class="workout-item">
+                    <h3 class="workout-title">
+                        <i class="fas fa-dumbbell"></i> ${ent.titulo || 'Entrenamiento'}
+                    </h3>
+                    ${ent.descripcion ? `
+                        <div class="workout-details">
+                            <strong>Descripción:</strong><br>
+                            ${ent.descripcion.replace(/\n/g, '<br>')}
+                        </div>
+                    ` : ''}
+                    ${ent.wod ? `
+                        <div class="workout-details" style="margin-top: 15px;">
+                            <strong>WOD:</strong><br>
+                            ${ent.wod.replace(/\n/g, '<br>')}
+                        </div>
+                    ` : ''}
+                    ${ent.equipamiento ? `
+                        <div style="margin-top: 15px;">
+                            <strong><i class="fas fa-tools"></i> Equipamiento:</strong>
+                            <div class="tags">
+                                ${ent.equipamiento.map(eq => `<span class="tag">${eq}</span>`).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        function getIcon(tipo) {
+            const icons = {
+                'crossfit': 'fire',
+                'endurance': 'running',
+                'haltero': 'weight-hanging',
+                'default': 'dumbbell'
+            };
+            return icons[tipo] || icons.default;
+        }
+        
+        // ========== FUNCIONES AUXILIARES ==========
+        function updateWeekSelector() {
+            weekSelect.innerHTML = '';
+            
+            if (appState.semanas.length === 0) {
+                weekSelect.innerHTML = '<option value="">No hay semanas</option>';
+                return;
+            }
+            
+            appState.semanas.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = file.replace('.json', '').replace(/_/g, ' ');
+                weekSelect.appendChild(option);
+            });
+        }
+        
+        async function handleWeekChange(e) {
+            const weekFile = e.target.value;
+            if (weekFile) {
+                await loadWeek(weekFile);
+            }
+        }
+        
+        function toggleDebug() {
+            appState.debugMode = !appState.debugMode;
+            debugInfo.style.display = appState.debugMode ? 'block' : 'none';
+            debugBtn.innerHTML = appState.debugMode ? 
+                '<i class="fas fa-times"></i> Ocultar detalles' : 
+                '<i class="fas fa-bug"></i> Ver detalles';
+        }
+        
+        function showDebugInfo(error) {
+            debugInfo.innerHTML = `
+                <h4><i class="fas fa-bug"></i> Información de depuración:</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+                <p><strong>Archivos configurados:</strong> ${JSON.stringify(appState.semanas)}</p>
+                <p><strong>URLs probadas:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><code>${CONFIG_FILE}</code></li>
+                    ${appState.semanas.map(f => `<li><code>${WEEKS_FOLDER + f}</code></li>`).join('')}
+                </ul>
+                <p style="margin-top: 15px; color: #00adb5;">
+                    <i class="fas fa-lightbulb"></i> 
+                    <strong>Sugerencia:</strong> Asegúrate de que los archivos existen en GitHub en la carpeta "semanas/"
+                </p>
+            `;
+        }
+        
+        function showLoading() {
+            loading.style.display = 'block';
+            weekContent.style.display = 'none';
+            error.style.display = 'none';
+        }
+        
+        function hideLoading() {
+            loading.style.display = 'none';
+        }
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            error.style.display = 'block';
+            loading.style.display = 'none';
+            weekContent.style.display = 'none';
+        }
+        
+        function hideError() {
+            error.style.display = 'none';
+        }
+        
+        function showContent() {
+            weekContent.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
