@@ -1,0 +1,25 @@
+{
+  "semana": 99,
+  "anio": 2024,
+  "rango_fechas": "01 Enero 2024",
+  "comentario_general": "SEMANA DE PRUEBA",
+  "dias": [
+    {
+      "nombre": "Lunes",
+      "fecha": "01/01/2024",
+      "programas": [
+        {
+          "tipo": "crossfit",
+          "titulo": "CrossFit Test",
+          "workouts": [
+            {
+              "titulo": "TEST",
+              "detalles": "10 burpees, 10 air squats, 10 push-ups"
+            }
+          ],
+          "feedback": "Esto es una prueba"
+        }
+      ]
+    }
+  ]
+}
