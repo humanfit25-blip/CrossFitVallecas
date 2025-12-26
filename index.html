@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFit Vallecas - Planificación Semanal | Coaches</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/weightlift.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Botón Semana Anterior -->
+            <button class="nav-btn prev-btn" onclick="cambiarSemana('anterior')" title="Semana anterior">
+                <i class="fas fa-chevron-left"></i>
+                <span>Semana Anterior</span>
+            </button>
+
+            <!-- Logo y Título Central -->
+            <div class="header-center">
+                <div class="logo-3d">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L60 40 L90 40 L67 57 L77 87 L50 70 L23 87 L33 57 L10 40 L40 40 Z" fill="#ff0055" stroke="#8B1538" stroke-width="2"></path>
+                        <ellipse cx="50" cy="50" rx="18" ry="20" fill="#1a1a1a" stroke="#ffffff" stroke-width="1.5"></ellipse>
+                        <circle cx="43" cy="48" r="3" fill="#ffffff"></circle>
+                        <circle cx="57" cy="48" r="3" fill="#ffffff"></circle>
+                        <path d="M45 60 Q50 63 55 60" stroke="#ffffff" stroke-width="1.5" fill="none"></path>
+                        <path d="M50 28 L48 35 L50 30 L52 35 Z" fill="#ffffff" stroke="#8B1538" stroke-width="0.5"></path>
+                        <path d="M50 72 L48 65 L50 70 L52 65 Z" fill="#ffffff" stroke="#8B1538" stroke-width="0.5"></path>
+                    </svg>
+                </div>
+                <h1>CrossFit Vallecas</h1>
+                <p class="subtitle">Planificación Semanal | Coaches</p>
+                <p id="week-dates" class="week-dates">Cargando programación...</p>
+                
+                <!-- Indicador de Semana -->
+                <div class="week-indicator">
+                    <i class="fas fa-calendar-week"></i>
+                    <span id="current-week">Semana: Cargando...</span>
+                    <div class="week-navigation-info">
+                        <span id="current-week-number">0</span> de <span id="total-weeks">0</span> semanas
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Semana Siguiente -->
+            <button class="nav-btn next-btn" onclick="cambiarSemana('siguiente')" title="Semana siguiente">
+                <span>Semana Siguiente</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </header>
+
+        <!-- Leyenda de Colores -->
+        <div class="legend-container">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-bar haltero"></div>
+                    <span>HALTEROFILIA</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-bar crossfit"></div>
+                    <span>CROSSFIT</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-bar endurance"></div>
+                    <span>ENDURANCE</span>
+                </div>
+            </div>
+            
+            <!-- Selector Rápido de Semanas -->
+            <div class="quick-nav">
+                <button class="quick-nav-btn" onclick="irASemanaEspecifica('semana_52_2025')">
+                    <i class="fas fa-calendar-star"></i> Semana 52
+                </button>
+                <button class="quick-nav-btn" onclick="irASemanaEspecifica('semana_1_2026')">
+                    <i class="fas fa-calendar-day"></i> Semana 1
+                </button>
+                <button class="quick-nav-btn" onclick="mostrarTodasSemanas()">
+                    <i class="fas fa-list"></i> Todas
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <main>
+            <div id="week-container" class="week-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p><i class="fas fa-dumbbell"></i> Cargando programación...</p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>CrossFit Vallecas - Sistema de Planificación para Coaches</p>
+                <p class="footer-info">
+                    <i class="fas fa-sync-alt"></i> Actualizado: <span id="last-update">Cargando...</span> | 
+                    <i class="fas fa-database"></i> Modo: <span id="storage-mode">JSON Dinámico</span>
+                </p>
+                <div class="footer-buttons">
+                    <button class="refresh-btn" onclick="cargarSemanaActual()">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                    <button class="help-btn" onclick="mostrarAyuda()">
+                        <i class="fas fa-question-circle"></i> Ayuda
+                    </button>
+                    <button class="config-btn" onclick="mostrarConfiguracion()">
+                        <i class="fas fa-cog"></i> Configuración
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de Ayuda -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <h3><i class="fas fa-info-circle"></i> Sistema de Navegación</h3>
+            <div class="modal-body">
+                <p><strong>📅 Navegación entre semanas:</strong></p>
+                <ul>
+                    <li><strong>Botones laterales:</strong> "Semana Anterior" y "Semana Siguiente"</li>
+                    <li><strong>Selector rápido:</strong> Botones para saltar a semanas específicas</li>
+                    <li><strong>Feedback:</strong> Cada programa tiene botón para ver recomendaciones</li>
+                </ul>
+                <p><strong>🔄 Para añadir nuevas semanas:</strong></p>
+                <ol>
+                    <li>Crea archivo JSON en carpeta <code>/semanas/</code></li>
+                    <li>Formato: <code>semana_X_YYYY.json</code></li>
+                    <li>Actualiza <code>config.json</code> con nueva semana</li>
+                    <li>¡La página detectará automáticamente!</li>
+                </ol>
+                <p><strong>🎯 Atajos de teclado:</strong></p>
+                <ul>
+                    <li><kbd>←</kbd> Flecha izquierda: Semana anterior</li>
+                    <li><kbd>→</kbd> Flecha derecha: Semana siguiente</li>
+                    <li><kbd>F5</kbd> Actualizar página</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Configuración -->
+    <div id="config-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <h3><i class="fas fa-cog"></i> Configuración del Sistema</h3>
+            <div class="modal-body">
+                <div class="config-section">
+                    <h4><i class="fas fa-calendar-alt"></i> Semana Actual</h4>
+                    <div class="config-input">
+                        <label>Número de Semana:</label>
+                        <input type="number" id="config-week" min="1" max="53" value="1">
+                    </div>
+                    <div class="config-input">
+                        <label>Año:</label>
+                        <input type="number" id="config-year" min="2025" max="2030" value="2026">
+                    </div>
+                    <button class="config-save-btn" onclick="guardarConfiguracion()">
+                        <i class="fas fa-save"></i> Guardar y Cargar
+                    </button>
+                </div>
+                
+                <div class="config-section">
+                    <h4><i class="fas fa-bell"></i> Notificaciones</h4>
+                    <div class="config-switch">
+                        <label>
+                            <input type="checkbox" id="notifications-enabled" checked>
+                            <span class="slider"></span>
+                            Recordatorios de actualización
+                        </label>
+                    </div>
+                    <div class="config-switch">
+                        <label>
+                            <input type="checkbox" id="auto-refresh-enabled">
+                            <span class="slider"></span>
+                            Actualización automática
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="config-section">
+                    <h4><i class="fas fa-database"></i> Sistema de Archivos</h4>
+                    <p>Semanas disponibles: <span id="available-weeks-count">2</span></p>
+                    <button class="config-btn-small" onclick="recargarListaSemanas()">
+                        <i class="fas fa-redo"></i> Recargar lista
+                    </button>
+                    <button class="config-btn-small" onclick="abrirExploradorSemanas()">
+                        <i class="fas fa-folder-open"></i> Explorar semanas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
