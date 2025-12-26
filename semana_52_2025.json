@@ -1,0 +1,7 @@
+{
+  "semana": 52,
+  "anio": 2025,
+  "entrenamientos": [
+    {"dia": "Lunes", "titulo": "Test", "descripcion": "10 burpees"}
+  ]
+}
