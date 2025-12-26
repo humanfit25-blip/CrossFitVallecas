@@ -1,3 +1,8 @@
 {
-  "semanas": ["semana_test.json"]
+  "app_name": "CrossFit Vallecas",
+  "semanas_disponibles": [
+    "semana_52_2025.json",
+    "semana_1_2026.json"
+  ],
+  "semana_por_defecto": "semana_52_2025.json"
 }
