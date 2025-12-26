@@ -1,0 +1,29 @@
+{
+  "semana": 1,
+  "anio": 2026,
+  "fecha_inicio": "2026-01-05",
+  "fecha_fin": "2026-01-10",
+  "comentario_general": "Reincorporación post-festivos. Técnica sobre intensidad.",
+  "entrenamientos": [
+    {
+      "dia": "Lunes",
+      "fecha": "05/01/2026",
+      "titulo": "CrossFit - Reincorporación",
+      "descripcion": "Front squats + Chipper",
+      "wod": "For Time (Cap 15'): 50 Wall Balls, 40 DB Lunges, 30 Box Jumps, 20 Pull-ups, 10 DB Thrusters",
+      "equipamiento": ["Wall Ball", "DB", "Cajón", "Barra"],
+      "scaling": "35 wall balls, step-ups, ring rows",
+      "feedback": "Primer día post-festivos. Sets pequeños, técnica sobre velocidad."
+    },
+    {
+      "dia": "Miércoles",
+      "fecha": "07/01/2026",
+      "titulo": "Strict Press + WOD",
+      "descripcion": "Fuerza en press + conditioning",
+      "wod": "5 Rounds: 8 Hang Clean & Jerk (50/35 kg), 15 TTB, 200m Run",
+      "equipamiento": ["Barra", "Discos", "Barra dominadas"],
+      "scaling": "Push press, knee raises",
+      "feedback": "Strict press hasta RPE8. WOD: técnica en clean & jerk."
+    }
+  ]
+}
