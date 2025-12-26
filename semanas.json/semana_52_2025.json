@@ -1,277 +1,29 @@
 {
   "semana": 52,
-  "año": 2025,
-  "rango_fechas": "29 Diciembre 2025 - 03 Enero 2026",
-  "ultima_actualizacion": "28/12/2025 08:00",
-  "comentario_general": "ÚLTIMA SEMANA DEL 2025 - WODs simbólicos y Hero WODs para cerrar el año. Enfatizar significado sobre intensidad.",
-  "dias": [
+  "anio": 2025,
+  "fecha_inicio": "2025-12-29",
+  "fecha_fin": "2026-01-03",
+  "comentario_general": "ÚLTIMA SEMANA DEL 2025 - WODs simbólicos y Hero WODs para cerrar el año.",
+  "entrenamientos": [
     {
-      "nombre": "Lunes",
+      "dia": "Lunes",
       "fecha": "29/12/2025",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "workouts": [
-            {
-              "titulo": "PART 1:",
-              "detalles": "Every Minute On The Minute For 10 minutes complete:\n• Odd minutes: 3 Front Squats (70-75% 1RM)\n• Even minutes: 8 Dumbbell Push Press (22.5/15 kg)"
-            },
-            {
-              "titulo": "PART 2:",
-              "detalles": "For Time:\n• 30 Hang Clusters (60/40 kg)\n• Every minute until you finish the clusters, complete 5 Burpees"
-            },
-            {
-              "titulo": "THEN:",
-              "detalles": "• 20 Wall Climbs / 40 Worm Walks\n• Every minute until you finish the wall climbs, complete 20 Double Unders"
-            }
-          ],
-          "feedback": "WOD de alta intensidad con doble penalty system. Asegúrate de que los atletas entiendan que son DOS secciones separadas: primero completan los 30 hang clusters con penalty de burpees cada minuto, y DESPUÉS atacan los wall climbs con penalty de double unders. El EMOM inicial es activación neuromuscular - vigila técnica en front squats con fatiga. Tiempo estimado total: 25-35 minutos. Scaling: Reduce reps de clusters (20-25), worm walks en lugar de wall climbs, singles en lugar de DU."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "workouts": [
-            {
-              "titulo": "Cap: 35 minutes",
-              "detalles": "10 Rounds:\n• 100m Run\n• 30 Double Unders\n• 20 Goblet Lunges (24/16 kg)\n• 10 Box Jumps (60/50 cm)"
-            }
-          ],
-          "feedback": "Motor aeróbico constante con transiciones rápidas. El cap de 35' es fundamental - si los atletas no completan las 10 rondas, registran rondas + reps. Cada ronda debería tomar 3-3.5 minutos. La clave es mantener pace sostenible en la carrera (no sprintar) y ser eficientes en las transiciones. Scaling: step-ups en lugar de box jumps, singles en lugar de DU, reducir peso del goblet."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "workouts": [
-            {
-              "titulo": "PART 1: Shoulder Press",
-              "detalles": "5 x 3 @ 80-85% 1RM\nRest 2:00 between sets"
-            },
-            {
-              "titulo": "PART 2: Push Press",
-              "detalles": "4 x 2 @ 85-90% 1RM\nRest 2:30 between sets"
-            },
-            {
-              "titulo": "PART 3: Muscle Snatch",
-              "detalles": "5 x 3 @ 50-55% 1RM Snatch\nTempo: 2 sec pause at hip\nRest 1:30 between sets"
-            },
-            {
-              "titulo": "PART 4: Power Snatch",
-              "detalles": "4 x 2 @ 70-75% 1RM Snatch\nRest 2:00 between sets"
-            }
-          ],
-          "feedback": "Sesión de fuerza y potencia de tren superior. El shoulder press estricto desarrolla base, el push press añade componente pliométrico. El muscle snatch es técnico - enfatiza la extensión completa antes del pull bajo la barra (pausa de 2” en cadera). Power snatch cierra con velocidad. Orden importante: de estricto a explosivo. Total: 60-75 minutos. Ajusta porcentajes según nivel técnico del atleta."
-        }
-      ]
+      "titulo": "CrossFit - Fuerza + WOD intenso",
+      "descripcion": "PART 1: EMOM 10' (3 Front Squats / 8 DB Push Press)\nPART 2: For Time: 30 Hang Clusters + Burpees penalty\nTHEN: 20 Wall Climbs + Double Unders penalty",
+      "wod": "For Time: 30 Hang Clusters (60/40 kg) + 5 Burpees cada minuto\nTHEN: 20 Wall Climbs + 20 DU cada minuto",
+      "equipamiento": ["Barra", "Discos", "Colchoneta"],
+      "scaling": "Reduce clusters a 20-25, worm walks, singles",
+      "feedback": "WOD con doble penalty system. Primero clusters con burpees, luego wall climbs con DU. Tiempo estimado: 25-35'."
     },
     {
-      "nombre": "Martes",
+      "dia": "Martes",
       "fecha": "30/12/2025",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "workouts": [
-            {
-              "titulo": "For Time:",
-              "detalles": "4 Rounds:\n• 200m Run\n• 20 Alternating Russian Swings (24/16 kg)\n• 10 Chest-to-Bar Pull-ups\n\nRest 2:00\n\n4 Rounds:\n• 200m Run\n• 20 Kettlebell Snatches (Alternating, 24/16 kg)\n• 10 Knees-to-Elbows"
-            }
-          ],
-          "feedback": "Dos bloques de trabajo con descanso programado. El descanso de 2' es estratégico - permite recuperación parcial sin enfriar completamente. El primer bloque trabaja posterior chain + pulling vertical, el segundo añade overhead + core. Tiempo objetivo: 12-16 minutos por bloque (24-32' totales sin contar rest). Scaling: reduce reps (3 rounds), regular pull-ups, knee raises, reduce peso KB."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "workouts": [
-            {
-              "titulo": "For Time (Team of 3):",
-              "detalles": "• 100 Calories (any machine)\n• 200 One-Arm Dumbbell Snatches (Alternating, 22.5/15 kg)\n• 150 Air Squats\n• 400 Single Unders\n• 150 Air Squats\n• 200 One-Arm Dumbbell Clean & Jerks (Alternating, 22.5/15 kg)\n• 100 Calories (any machine)\n\nEvery 5 minutes, all 3 teammates run 100m together"
-            }
-          ],
-          "feedback": "Team chipper con penalty de carrera colectiva. La carrera cada 5' obliga a gestión de tiempo - si están en medio de un movimiento, deben parar, correr los 3 juntos, y retomar. Estrategia: dividir trabajo en chunks (ej: 30 cal / 50 DB snatch / 50 air squats por persona). La estructura es simétrica (cal-DB movement-squats-singles-squats-DB movement-cal). Tiempo estimado: 35-45 minutos. Scaling: reduce reps totales (75 cal, 150 DB movements, 100 squats, 300 singles)."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "workouts": [
-            {
-              "titulo": "PART 1: Deadlift",
-              "detalles": "5 x 5 @ 75-80% 1RM\nTempo: 3 sec descent\nRest 2:30 between sets"
-            },
-            {
-              "titulo": "PART 2: Squat Clean",
-              "detalles": "5 x 3 @ 70-75% 1RM Clean\nRest 2:30 between sets"
-            },
-            {
-              "titulo": "PART 3: Power Clean",
-              "detalles": "4 x 2 @ 80-85% 1RM Clean\nFocus: Speed under bar\nRest 2:00 between sets"
-            }
-          ],
-          "feedback": "Sesión de tirón + recepción. El deadlift con tempo excéntrico de 3” desarrolla control y fuerza isométrica. Squat clean trabaja posición de recepción profunda - cuida movilidad de tobillo/cadera. Power clean cierra con explosividad - la clave es velocidad bajo la barra, no altura del pull. Progresión lógica: fuerza base → técnica completa → potencia. Total: 60-75 minutos."
-        }
-      ]
-    },
-    {
-      "nombre": "Miércoles",
-      "fecha": "31/12/2025",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "workouts": [
-            {
-              "titulo": "\"TWELVE GUNSHOT\"",
-              "detalles": "AMRAP 31 minutes:\n• 52 Double Unders\n• 12 Bar Muscle-ups\n• 20 Hang Power Cleans (60/40 kg)\n• 12 Burpees\n• 12 Toes-to-Bar\n• 25 Calories (choice: Row/Bike/Ski)\n• 31 Wall Balls (9/6 kg)"
-            }
-          ],
-          "feedback": "El WOD simbólico de cierre de año: 52 semanas, 31 día, 12 mes, 20-25 por 2025. Es un AMRAP brutal - atletas RX completarán 2-4 rondas. La clave es gestión de ritmo desde la primera ronda - no sprintar los DU ni los BMU. Las calories son 'choice' para distribuir máquinas y evitar cuellos de botella. Scaling crítico: C2B o burpee pull-ups en lugar de BMU, reduce peso de barbell y wall ball, singles en lugar de DU. Brief importante: este WOD celebra el año, no es competición - que disfruten el sufrimiento."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "workouts": [
-            {
-              "titulo": "\"END GAME\"",
-              "detalles": "PART 1:\nEvery Minute On The Minute For 12 minutes complete:\n• Minute 1: 12 Dumbbell Jerks (22.5/15 kg)\n• Minute 2: 31 Jumping Lunges (total)\n• Minute 3: 52 Flutter Kicks (total)\n• Repeat 4 rounds\n\nAt minute 12:\n• 1km Run\n\nAt minute 20:\nEvery Minute On The Minute For 12 minutes complete:\n• Minute 1: 7 Devil Press (22.5/15 kg)\n• Minute 2: 20 Hollow Rocks\n• Minute 3: 25 Russian Swings (24/16 kg)\n• Repeat 4 rounds"
-            }
-          ],
-          "feedback": "Estructura genial con punto de reagrupación. El 1km empieza en el minuto 12 - los atletas rápidos (sub 4:30) tendrán 3-5' de descanso antes del minuto 20, los lentos llegarán justo. TODOS empiezan el segundo EMOM en el minuto 20, sin importar cuándo terminaron de correr. Esto recompensa el motor aeróbico pero no hunde a los scaled. Brief crítico: explicar que el minuto 20 es inicio fijo para todos. Primer EMOM es upper body + legs, segundo EMOM es full body + core. Tiempo total: 32 minutos. Scaling: reduce peso de DB/KB, reduce reps de devil press (5)."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "workouts": [
-            {
-              "titulo": "PART 1: Squat Snatch",
-              "detalles": "Build to heavy single\nThen: 4 x 2 @ 85% of today's heavy single\nRest 3:00 between sets"
-            },
-            {
-              "titulo": "PART 2: Clean & Jerk",
-              "detalles": "Build to heavy complex (1 Clean + 1 Jerk)\nThen: 3 x (1+1) @ 90% of today's heavy complex\nRest 3:30 between sets"
-            }
-          ],
-          "feedback": "Sesión de máximos técnicos para cerrar el año. NO es test de 1RM - es 'heavy single/complex' donde priorizamos técnica perfecta. Si la técnica se rompe, paramos ahí. Después del heavy, bajamos a porcentajes para trabajo de calidad. El snatch es el movimiento más técnico - asegura movilidad adecuada en warm-up. Clean & jerk permite cargas mayores. Descansos largos son necesarios para recuperación del SNC. Total: 75-90 minutos. Perfecto para atletas avanzados; scaled puede hacer power versions."
-        }
-      ]
-    },
-    {
-      "nombre": "Jueves",
-      "fecha": "01/01/2026",
-      "festivo": true,
-      "festivo_badge": "🎆 FELIZ AÑO NUEVO 🎆",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "rest_text": "Rest Day - Celebrate responsibly",
-          "icono": "🎇",
-          "feedback": "Día de descanso completo. Los atletas vienen de una semana intensa (especialmente el miércoles con 'TWELVE GUNSHOT' y 'END GAME'). La recuperación es parte del entrenamiento. Anima a los atletas a hidratarse bien, comer adecuadamente, y prepararse mentalmente para la semana que viene. El viernes arrancamos 2026 con Hero WODs - necesitan estar frescos."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "rest_text": "Rest Day - Celebrate responsibly",
-          "icono": "🥂",
-          "feedback": "Descanso completo. Recordar a los atletas que la recuperación es igual de importante que el entrenamiento. El viernes tendremos Hero WODs que requieren energía y concentración."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "rest_text": "Rest Day - Celebrate responsibly",
-          "icono": "🌟",
-          "feedback": "Día de descanso. Animar a los atletas a recuperarse completamente para la semana intensa que viene. Es un buen día para estiramientos activos y movilidad si algún atleta quiere venir."
-        }
-      ]
-    },
-    {
-      "nombre": "Viernes",
-      "fecha": "02/01/2026",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "workouts": [
-            {
-              "titulo": "\"MONTY\" - HERO WOD",
-              "detalles": "4 Rounds For Time:\n• 11 Push-ups\n• 7 Squat Cleans (70/47.5 kg)\n• 27 Box Jump Overs (60/50 cm)\n• 7 Squat Cleans (70/47.5 kg)\n• 11 Pull-ups\n• 19 Box Jump Overs (60/50 cm)"
-            }
-          ],
-          "feedback": "Hero WOD en honor a Navy Petty Officer 2nd Class Sean Monty. Los números tienen significado (fecha de nacimiento/servicio). Es un WOD de volumen alto - 4 rondas de 56 squat cleans + 44 pull-ups/push-ups + 184 box jump overs. Tiempo objetivo: 25-35 minutos para RX. La estrategia es mantener sets pequeños y sostenibles en squat cleans (2-3 reps) y pull-ups (3-5 reps). Los BJO son el 'descanso activo'. Scaling esencial: reduce peso de barbell (60/40 kg o menos), step-overs en lugar de jumps, reduce a 3 rondas si es necesario. Brief: explicar el significado del WOD para dar contexto y propósito."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "workouts": [
-            {
-              "titulo": "\"DALLAS 5\" - HERO WOD",
-              "detalles": "For Time:\n• 50 Burpees\n\nThen 5 Rounds:\n• 10 Wall Ball Shots (9/6 kg)\n• 10 Shoulder-to-Overheads (42.5/30 kg)\n• 10 Pull-ups\n• 10 Box Jumps (60/50 cm)\n• 10 Sit-ups\n\nThen:\n• 800m Run"
-            }
-          ],
-          "feedback": "Hero WOD en honor a los 5 oficiales de Dallas caídos en 2016. Estructura: buy-in de 50 burpees, 5 rondas de 50 reps each (250 reps totales), cash-out de 800m. Tiempo objetivo: 30-40 minutos. La clave es pace management - los burpees iniciales queman, no ir all-out. En las 5 rondas, mantener sets de 5 reps y transiciones rápidas. El run final será duro con las piernas cargadas. Scaling: reduce burpees (30-40), reduce peso de wall ball y S2OH, step-ups en lugar de box jumps, reduce a 400m run. Brief importante: contexto del WOD para honrar la memoria."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "workouts": [
-            {
-              "titulo": "PART 1: Back Squat",
-              "detalles": "5 x 5 @ 75-80% 1RM\nTempo: 3 sec descent, explosive ascent\nRest 2:30 between sets"
-            },
-            {
-              "titulo": "PART 2: Snatch",
-              "detalles": "Every 90 seconds for 10 sets:\n• 1 Snatch @ 75-80% 1RM\nFocus: Speed + Precision"
-            }
-          ],
-          "feedback": "Sesión de fuerza + técnica para arrancar 2026. Back squat con tempo excéntrico desarrolla control y time under tension - es trabajo de hipertrofia/fuerza, no potencia. El snatch en EMOM 90\" permite repeticiones de calidad sin fatiga acumulada - cada rep debe ser técnicamente perfecta. Si un atleta falla 2 reps consecutivas, baja el peso 5-10%. Total: 60-70 minutos. Perfecto para volver después del descanso de Año Nuevo."
-        }
-      ]
-    },
-    {
-      "nombre": "Sábado",
-      "fecha": "03/01/2026",
-      "programas": [
-        {
-          "tipo": "crossfit",
-          "titulo": "CrossFit",
-          "workouts": [
-            {
-              "titulo": "Team of 3 - For Time:",
-              "detalles": "STATION 1:\nTeammate A accumulates 60 Devil Press (22.5/15 kg)\n• Teammates B & C rest\n• Rotate as needed\n\nTHEN STATION 2:\nTeammate A accumulates 120 Back Squats (60/40 kg)\n• While Teammates B & C run 100m together\n• When B & C return, A rests and B accumulates squats while A & C run\n• Rotate until 120 squats completed\n\nTHEN STATION 3:\n• Teammate A: Accumulate 90 Bench Press (60/40 kg)\n• Teammate B: 90 Bicep Curls (20/12.5 kg DBs)\n• Teammate C: Plank Hold\n• Rotate every 30 reps or when form breaks"
-            }
-          ],
-          "feedback": "Team WOD para cerrar la semana con comunidad. STATION 1: Teammate A hace devil press, B y C descansan. A elige cuándo rotar (ej: cada 10 reps). STATION 2: mientras uno hace back squats, los otros 2 corren 100m juntos - cuando regresan, rotan. STATION 3: trabajo simultáneo - uno hace bench, otro curls, otro plank. Rotan cada 30 reps o cuando la forma técnica se rompe. Tiempo estimado: 35-45 minutos. La clave es comunicación entre compañeros y gestión de fatiga. Scaling: reduce reps totales (40 DP, 90 squats, 60 bench/curls), reduce peso."
-        },
-        {
-          "tipo": "endurance",
-          "titulo": "Endurance",
-          "workouts": [
-            {
-              "titulo": "For Time:",
-              "detalles": "• 200m Run\n• 60 Double Unders\n• 50 Kettlebell Swings (24/16 kg)\n• 40 Air Squats\n• 400m Run\n• 30 Kettlebell Snatches (Alternating, 24/16 kg)\n• 20 Push-ups\n• 10 Kettlebell Thrusters (24/16 kg)\n• 800m Run\n• 10 Kettlebell Thrusters (24/16 kg)\n• 20 Push-ups\n• 30 Kettlebell Snatches (Alternating, 24/16 kg)\n• 400m Run\n• 40 Air Squats\n• 50 Kettlebell Swings (24/16 kg)\n• 60 Double Unders\n• 200m Run"
-            }
-          ],
-          "feedback": "Chipper simétrico estilo 'there and back' - estructura espejo. Empieza ligero (200m), construye hasta 800m en el centro, y regresa. Total de carrera: 3km. Los kettlebell thrusters en el medio son el punto más duro - solo 10 reps pero después de 800m run con piernas quemadas. Tiempo objetivo: 35-45 minutos. Estrategia: no sprintar las carreras cortas (200/400m), mantener pace sostenible. Los KB movements deben ser unbroken o sets grandes. Scaling: reduce peso KB (20/12 kg), singles en lugar de DU, reduce distancias de run (mantener estructura pero hacer 100/200/400/200/100)."
-        },
-        {
-          "tipo": "haltero",
-          "titulo": "Halterofilia",
-          "workouts": [
-            {
-              "titulo": "PART 1: Muscle Snatch",
-              "detalles": "6 x 3 @ 45-50% 1RM Snatch\nTempo: 2 sec pause at hip, 1 sec pause overhead\nRest 1:30 between sets"
-            },
-            {
-              "titulo": "PART 2: Drop Snatch",
-              "detalles": "5 x 3 @ 50-60% 1RM Snatch\nFocus: Speed under bar\nRest 1:30 between sets"
-            },
-            {
-              "titulo": "PART 3: Power Snatch",
-              "detalles": "5 x 2 @ 75-80% 1RM Snatch\nRest 2:00 between sets"
-            }
-          ],
-          "feedback": "Sesión técnica de snatch progresiva. Muscle snatch con pausas en cadera y overhead desarrolla fuerza en posiciones clave y control. Drop snatch trabaja velocidad bajo la barra y confianza en recepción overhead - es el movimiento más difícil técnicamente. Power snatch cierra con cargas moderadas-altas aplicando las posiciones trabajadas. Orden importante: de técnico/ligero a potencia. Total: 60-70 minutos. Perfecto para fin de semana - refinar técnica sin acumular fatiga excesiva."
-        }
-      ]
+      "titulo": "Técnica Clean + Metcon",
+      "descripcion": "Técnica de clean seguido de entrenamiento metabólico",
+      "wod": "5 rondas: 10 power cleans (135/95 lbs), 15 box jumps",
+      "equipamiento": ["Barra", "Discos", "Cajón"],
+      "scaling": "Reduce peso, step-ups",
+      "feedback": "Mantener técnica en cleans. 5 rondas lo más rápido posible."
     }
   ]
 }
