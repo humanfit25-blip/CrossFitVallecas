@@ -1,6 +1,14 @@
 {
+  "app_name": "CrossFit Vallecas",
+  "version": "1.0.0",
   "semanas_disponibles": [
-    "semana_52_2025.json",
-    "semana_1_2026.json"
+    {
+      "nombre": "Semana 52 - 2025",
+      "archivo": "semana_52_2025.json"
+    },
+    {
+      "nombre": "Semana 1 - 2026", 
+      "archivo": "semana_1_2026.json"
+    }
   ]
 }
